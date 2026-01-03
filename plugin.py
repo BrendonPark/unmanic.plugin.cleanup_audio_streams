@@ -26,10 +26,10 @@ from pyarr import RadarrAPI, SonarrAPI
 
 from unmanic.libs.unplugins.settings import PluginSettings
 
-from reorder_audio_streams_by_language.lib.ffmpeg import Parser, Probe, StreamMapper
+from cleanup_audio_streams.lib.ffmpeg import Parser, Probe, StreamMapper
 
 # Configure plugin logger
-logger = logging.getLogger("Unmanic.Plugin.reorder_audio_streams_by_language")
+logger = logging.getLogger("Unmanic.Plugin.cleanup_audio_streams")
 
 
 class Settings(PluginSettings):

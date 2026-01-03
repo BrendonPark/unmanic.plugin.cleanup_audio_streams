@@ -4,8 +4,8 @@
 ##### Links:
 
 - [Support](https://unmanic.app/discord)
-- [Issues/Feature Requests](https://github.com/Unmanic/plugin.reorder_audio_streams_by_language/issues)
-- [Pull Requests](https://github.com/Unmanic/plugin.reorder_audio_streams_by_language/pulls)
+- [Issues/Feature Requests](https://github.com/BrendonPark/unmanic.plugin.cleanup_audio_streams/issues)
+- [Pull Requests](https://github.com/BrendonPark/unmanic.plugin.cleanup_audio_streams/pulls)
 
 ---
 

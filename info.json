@@ -1,13 +1,13 @@
 {
-    "author": "Josh.5",
+    "author": "BrendonPark",
     "compatibility": [
         1,
         2
     ],
     "description": "Manually specify language tag, or use \"original language\" from Radarr/Sonarr, for Unmanic to set as the default audio track.",
-    "icon": "https://raw.githubusercontent.com/Josh5/unmanic.plugin.reorder_audio_streams_by_language/master/icon.png",
-    "id": "reorder_audio_streams_by_language",
-    "name": "Re-order audio streams by language",
+    "icon": "https://raw.githubusercontent.com/BrendonPark/unmanic.plugin.cleanup_audio_streams/master/icon.png",
+    "id": "cleanup_audio_streams",
+    "name": "Cleanup audio stream to retain only a default and the original show language",
     "platform": [
         "all"
     ],
@@ -16,5 +16,5 @@
         "on_worker_process": 2
     },
     "tags": "audio,ffmpeg,library file test",
-    "version": "1.2.1"
+    "version": "1.0.0"
 }
