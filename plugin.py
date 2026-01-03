@@ -177,23 +177,41 @@ class PluginStreamMapper(StreamMapper):
         sonarr_api_key = self.settings.get_setting("sonarr_api_key")
 
         if not sonarr_url or not sonarr_api_key:
+            logger.debug(
+                "Sonarr lookup skipped (missing URL or API key). url_set=%s",
+                bool(sonarr_url),
+                bool(sonarr_api_key),
+            )
             return None
 
         api = SonarrAPI(sonarr_url, sonarr_api_key)
 
         # Need to wrap in double quotes for querying via path to work correctly
-        series_data = api.lookup_series(f'"{self.original_path}"')
+        lookup_path = f'"{self.original_path}"'
+        logger.debug("Sonarr lookup_series request. url=%s path=%s", sonarr_url, lookup_path)
+        series_data = api.lookup_series(lookup_path)
+        logger.debug("Sonarr lookup_series returned %d series", len(series_data))
 
         if len(series_data) == 0:
+            logger.debug("Sonarr lookup_series found no matching series.")
             return None
 
         original_language = series_data[0].get("originalLanguage")
 
         if not original_language:
+            logger.debug(
+                "Sonarr series missing originalLanguage. series_title=%s",
+                series_data[0].get("title"),
+            )
             return None
 
         lang = pycountry.languages.get(name=original_language["name"])
 
+        if not lang:
+            logger.debug(
+                "Sonarr original language not found in pycountry. language_name=%s",
+                original_language.get("name"),
+            )
         return lang.alpha_3 if lang else None
 
     def test_tags_for_search_string(self, stream_tags):
