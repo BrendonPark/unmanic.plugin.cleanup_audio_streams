@@ -344,7 +344,7 @@ def on_library_management_file_test(data):
         settings = Settings()
 
     # Get stream mapper
-    mapper = PluginStreamMapper()
+    mapper = PluginStreamMapper(abspath)
     mapper.set_settings(settings)
     mapper.set_langcode()
     mapper.set_probe(probe)
