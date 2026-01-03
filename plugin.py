@@ -389,6 +389,8 @@ def on_worker_process(data):
     abspath = data.get("file_in")
     original_path = data.get("original_file_path")
 
+    logger.debug("original data: %s", data)
+
     # Get file probe
     probe = Probe(logger, allowed_mimetypes=["video"])
     if not probe.file(abspath):
